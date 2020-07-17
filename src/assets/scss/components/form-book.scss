@@ -1,0 +1,60 @@
+.form-book {
+	width: 100%;
+	height: 100%;
+	border: 1px solid $colorSecondary;
+	padding: 40px 30px;
+	padding-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	&__title {
+		@include setFonts(700);
+	}
+	&__name,
+	&__author,
+	&__year,
+	&__images {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		label {
+			margin-bottom: 10px;
+		}
+		input {
+			width: 100%;
+			box-shadow: 0 0 1px $colorDark;
+			padding: 10px;
+			transition: box-shadow 0.2s ease;
+			&:focus {
+				box-shadow: 0 0 3px $colorDark;
+			}
+		}
+	}
+	&__buttons {
+		button {
+			padding: 10px;
+			width: 15%;
+			margin-right: 15px;
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		.save {
+			border: 1px solid $colorSuccess;
+			color: $colorDark;
+			&:hover {
+				background-color: $colorSuccess;
+				color: $colorLight;
+			}
+		}
+		.cancel {
+			border: 1px solid $colorDanger;
+			color: $colorDark;
+			&:hover {
+				background-color: $colorDanger;
+				color: $colorLight;
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+.table-books {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+}

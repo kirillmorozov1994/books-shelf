@@ -1,0 +1,17 @@
+.app {
+	height: 86vh;
+	margin: 0 auto;
+	padding: 0 10px;
+	overflow: hidden;
+	&-box {
+		width: 104%;
+		height: 100%;
+		padding-right: 4%;
+		overflow-y: scroll;
+		& .page {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

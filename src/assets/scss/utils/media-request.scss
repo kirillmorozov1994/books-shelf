@@ -1,0 +1,321 @@
+@media screen and (min-width: $sizeScreenS), (max-width: $sizeScreenS) {
+	.header {
+		font-size: $fontTitleS;
+		&-title {
+			max-width: $sizeWindowS;
+		}
+	}
+	.app {
+		max-width: $sizeWindowS;
+		font-size: $fontS;
+		.page-books {
+			.btn-add-book {
+				font-size: $fontM;
+				width: 60%;
+			}
+			.search {
+				&-input {
+					font-size: $fontS;
+				}
+			}
+			.list-item {
+				&__col {
+					flex-direction: column;
+					.item {
+						&-img {
+							width: 40%;
+						}
+						&-desc {
+							width: 100%;
+						}
+						&-panel {
+							padding: 10px;
+							width: 65%;
+						}
+					}
+				}
+			}
+		}
+		.page-form-books {
+			.form-book {
+				&__title {
+					font-size: $fontL;
+				}
+				&__name,
+				&__author,
+				&__year,
+				&__images {
+					font-size: $fontS;
+					.alert {
+						font-size: $fontEs;
+						width: 100%;
+						top: calc(100% + 10px);
+						&::before {
+							width: 10px;
+							height: 10px;
+							bottom: 100%;
+						}
+					}
+					input {
+						font-size: $fontS;
+					}
+				}
+				&__buttons {
+					button {
+						font-size: $fontS;
+						width: 40%;
+					}
+				}
+			}
+		}
+		.page-not-found {
+			.title {
+				font-size: $fontTitleS;
+			}
+			.home {
+				width: 100%;
+			}
+		}
+	}
+	.footer {
+		font-size: $fontS;
+		&-box {
+			max-width: $sizeWindowS;
+		}
+	}
+}
+
+@media screen and (min-width: $sizeScreenM) {
+	.header {
+		font-size: $fontTitleM;
+		&-title {
+			max-width: $sizeWindowM;
+		}
+	}
+	.app {
+		max-width: $sizeWindowM;
+		font-size: $fontM;
+		.page-books {
+			.btn-add-book {
+				font-size: $fontL;
+				width: 30%;
+			}
+			.search {
+				&-input {
+					font-size: $fontM;
+				}
+			}
+			.list-item {
+				&__col {
+					flex-direction: row;
+					.item {
+						&-img {
+							width: 15%;
+						}
+						&-desc {
+							width: 60%;
+						}
+						&-panel {
+							padding: 10px;
+							width: 25%;
+						}
+					}
+				}
+			}
+		}
+		.page-form-books {
+			.form-book {
+				&__title {
+					font-size: $fontTitleM;
+				}
+				&__name,
+				&__author,
+				&__year,
+				&__images {
+					font-size: $fontM;
+					.alert {
+						font-size: $fontS;
+						width: 100%;
+						top: calc(100% + 10px);
+						&::before {
+							width: 10px;
+							height: 10px;
+							bottom: 100%;
+						}
+					}
+					input {
+						font-size: $fontS;
+					}
+				}
+				&__buttons {
+					button {
+						font-size: $fontM;
+						width: 20%;
+					}
+				}
+			}
+		}
+		.page-not-found {
+			.title {
+				font-size: $fontTitleM;
+			}
+			.home {
+				width: 55%;
+			}
+		}
+	}
+	.footer {
+		font-size: $fontM;
+		&-box {
+			max-width: $sizeWindowM;
+		}
+	}
+}
+
+@media screen and (min-width: $sizeScreenL) {
+	.header {
+		font-size: $fontTitleL;
+		&-title {
+			max-width: $sizeWindowL;
+		}
+	}
+	.app {
+		max-width: $sizeWindowL;
+		font-size: $fontL;
+		.page-books {
+			.btn-add-book {
+				font-size: $fontTitleS;
+			}
+			.search {
+				&-input {
+					font-size: $fontL;
+				}
+			}
+			.list-item {
+				&__col {
+					.item {
+						&-img {
+							width: 10%;
+						}
+						&-desc {
+							width: 70%;
+						}
+						&-panel {
+							padding: 20px;
+							width: 20%;
+						}
+					}
+				}
+			}
+		}
+		.page-form-books {
+			.form-book {
+				&__title {
+					font-size: $fontTitleL;
+				}
+				&__name,
+				&__author,
+				&__year,
+				&__images {
+					font-size: $fontL;
+					.alert {
+						font-size: $fontS;
+						width: 80%;
+						top: -20px;
+						&::before {
+							width: 20px;
+							height: 20px;
+							bottom: 0;
+						}
+					}
+					input {
+						font-size: $fontM;
+					}
+				}
+				&__buttons {
+					button {
+						font-size: $fontL;
+					}
+				}
+			}
+		}
+		.page-not-found {
+			.title {
+				font-size: $fontTitleL;
+			}
+			.home {
+				width: 40%;
+			}
+		}
+	}
+	.footer {
+		font-size: $fontL;
+		&-box {
+			max-width: $sizeWindowL;
+		}
+	}
+}
+
+@media screen and (min-width: $sizeScreenEl) {
+	.header {
+		font-size: $fontTitleEl;
+		&-title {
+			max-width: $sizeWindowEl;
+		}
+	}
+	.app {
+		max-width: $sizeWindowEl;
+		font-size: $fontEl;
+		.page-books {
+			.btn-add-book {
+				font-size: $fontTitleS;
+			}
+			.search {
+				&-input {
+					font-size: $fontEl;
+				}
+			}
+			button {
+				font-size: $fontS;
+			}
+		}
+		.page-form-books {
+			.form-book {
+				&__title {
+					font-size: $fontTitleEl;
+				}
+				&__name,
+				&__author,
+				&__year,
+				&__images {
+					font-size: $fontEl;
+					.alert {
+						font-size: $fontM;
+					}
+					input {
+						font-size: $fontM;
+					}
+				}
+				&__buttons {
+					button {
+						font-size: $fontL;
+					}
+				}
+			}
+		}
+		.page-not-found {
+			.title {
+				font-size: $fontTitleEl;
+			}
+			.home {
+				width: 35%;
+			}
+		}
+	}
+	.footer {
+		font-size: $fontEl;
+		&-box {
+			max-width: $sizeWindowEl;
+		}
+	}
+}

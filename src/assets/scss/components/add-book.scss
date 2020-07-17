@@ -1,0 +1,17 @@
+.btn-add-book {
+	display: inline-block;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 25%;
+	padding: 15px;
+	background-color: transparent;
+	border: 1px solid $colorSuccess;
+	color: $colorDark;
+	transition: all 0.3s ease-out;
+	&:hover {
+		cursor: pointer;
+		background-color: $colorSuccess;
+		color: $colorWhite;
+	}
+}

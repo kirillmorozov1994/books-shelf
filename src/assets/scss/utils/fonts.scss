@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@200;400;700&display=swap');
+
+@mixin setFonts($weight) {
+	font-family: 'Muli', sans-serif;
+	font-weight: $weight;
+}
