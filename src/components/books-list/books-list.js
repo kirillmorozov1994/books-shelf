@@ -14,19 +14,15 @@ const BooksList = () => {
 			</CSSTransition>
 		))
 
-	const notFoundBooks = (
-		<tr className="list-empty__row">
-			<td className="list-empty__col">Полка книг пуста</td>
-		</tr>
-	)
-
 	return (
 		<table className="table-books">
 			<tbody className="table-books__body">
 				{booksList.length === 0 ? (
-					notFoundBooks
+					<tr className="list-empty__row">
+						<td className="list-empty__col">Полка книг пуста</td>
+					</tr>
 				) : (
-					<TransitionGroup exit component={null}>
+					<TransitionGroup enter exit component={null}>
 						{booksList}
 					</TransitionGroup>
 				)}

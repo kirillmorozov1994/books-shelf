@@ -86,6 +86,13 @@
 			}
 		}
 		&-animation {
+			&-enter {
+				max-height: 0;
+				&-active {
+					max-height: 100vh;
+					transition: max-height 0.75s ease-in-out;
+				}
+			}
 			&-exit {
 				max-height: 100vh;
 				&-active {

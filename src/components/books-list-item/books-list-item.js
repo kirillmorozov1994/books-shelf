@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { formEditBook, removeBook } from '../../actions'
@@ -51,6 +52,23 @@ const BooksListItem = ({ id, title, author, year, coverImage, history }) => {
 			</td>
 		</tr>
 	)
+}
+
+BooksListItem.defaultProps = {
+	id: 1,
+	title: 'Заголов книги',
+	author: 'Автор книги',
+	year: 'Год выпуска книги',
+	coverImage: 'https://cdn1.ozone.ru/multimedia/1031049553.jpg',
+}
+
+BooksListItem.propTypes = {
+	id: PropTypes.number,
+	title: PropTypes.string,
+	author: PropTypes.string,
+	year: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	coverImage: PropTypes.string,
+	history: PropTypes.object.isRequired,
 }
 
 export default withRouter(BooksListItem)

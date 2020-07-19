@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useSelector, useDispatch } from 'react-redux'
 import { showAlert, hideAlert, addedBook, editBook, formClearBook } from '../../actions'
 import { withRouter } from 'react-router-dom'
@@ -133,6 +134,10 @@ const FormBook = ({ history }) => {
 			</div>
 		</form>
 	)
+}
+
+FormBook.propTypes = {
+	history: PropTypes.object.isRequired,
 }
 
 export default withRouter(FormBook)
