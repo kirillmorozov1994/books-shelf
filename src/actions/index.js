@@ -1,12 +1,17 @@
-import { ALERT, BOOKS, FORM, SEARCH } from '../types'
+import { ALERT, BOOKS, SEARCH } from '../types'
 
 const showAlert = (prop) => ({
 	type: ALERT.VISIBLE,
 	payload: prop,
 })
 
-const hideAlert = () => ({
+const hideAlert = (prop) => ({
 	type: ALERT.HIDE,
+	payload: prop,
+})
+
+const hideAllAlert = () => ({
+	type: ALERT.ALL_HIDE,
 })
 
 const addedBook = (book) => ({
@@ -24,27 +29,9 @@ const removeBook = (id) => ({
 	payload: id,
 })
 
-const formEditBook = (book) => ({
-	type: FORM.EDIT,
-	payload: book,
-})
-
-const formClearBook = () => ({
-	type: FORM.CLEAR,
-})
-
 const searchBooks = (term) => ({
 	type: SEARCH,
 	payload: term,
 })
 
-export {
-	showAlert,
-	hideAlert,
-	addedBook,
-	editBook,
-	removeBook,
-	formEditBook,
-	formClearBook,
-	searchBooks,
-}
+export { showAlert, hideAlert, hideAllAlert, addedBook, editBook, removeBook, searchBooks }

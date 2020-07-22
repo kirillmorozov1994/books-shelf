@@ -8,7 +8,7 @@ import Footer from '../footer'
 const App = () => {
 	const routes = [
 		{ path: '/', Component: PageBooks },
-		{ path: '/form', Component: PageFormBooks },
+		{ path: '/form/:id?', Component: PageFormBooks },
 		{ path: '/:error404', Component: NotFound },
 	]
 
@@ -21,7 +21,7 @@ const App = () => {
 						{routes.map(({ path, Component }) => {
 							if (path === '/:error404') {
 								return (
-									<Route key={path} path={path} exact>
+									<Route key={path} path={path}>
 										{({ match }) => (
 											<CSSTransition
 												in={match !== null && match.params.error404 !== 'form'}

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector, useDispatch } from 'react-redux'
-import { showAlert, hideAlert, addedBook, editBook, formClearBook } from '../../actions'
+import { showAlert, hideAllAlert, addedBook, editBook } from '../../actions'
 import { withRouter } from 'react-router-dom'
 import Alert from '../alert'
 
-const FormBook = ({ history }) => {
-	const { alert, form } = useSelector(({ alert, form }) => ({ alert, form }))
+const FormBook = ({ match, history }) => {
+	const bookId = match?.params?.id
+	const alerts = useSelector(({ alert }) => alert)
+	const currentBook = useSelector(({ books }) => books.find(({ id }) => +bookId === id))
 	const dispatch = useDispatch()
 
 	const [title, setTitle] = useState('Добавление')
@@ -16,15 +18,36 @@ const FormBook = ({ history }) => {
 	const [img, setImg] = useState('')
 
 	useEffect(() => {
-		if (form !== null) {
-			setTitle(form.title)
-			setName(form.name)
-			setAuthor(form.author)
-			setYear(form.year)
-			setImg(form.img)
+		if (currentBook !== undefined) {
+			setTitle('Редактирование')
+			setName(currentBook.title)
+			setAuthor(currentBook.author)
+			setYear(currentBook.year)
+			setImg(currentBook.coverImage)
 		}
 		//eslint-disable-next-line
 	}, [])
+
+	const validateForm = () => {
+		let validator = true
+		if (name.length < 3) {
+			dispatch(showAlert('name'))
+			validator = false
+		}
+		if (author.length < 3) {
+			dispatch(showAlert('author'))
+			validator = false
+		}
+		if (+year < 2017) {
+			dispatch(showAlert('year'))
+			validator = false
+		}
+		if (!/\.(png|jpe?g|gif)$/i.test(img) && !/^https?:\/\//i.test(img)) {
+			dispatch(showAlert('images'))
+			validator = false
+		}
+		return validator
+	}
 
 	const clearField = () => {
 		setName('')
@@ -32,47 +55,32 @@ const FormBook = ({ history }) => {
 		setYear('')
 		setImg('')
 		history.push('/')
-		dispatch(formClearBook())
-		dispatch(hideAlert())
+		dispatch(hideAllAlert())
 	}
 
 	const submitForm = (e) => {
 		e.preventDefault()
-		if (name.length < 3) {
-			dispatch(showAlert('name'))
-			return
-		}
-		if (author.length < 3) {
-			dispatch(showAlert('author'))
-			return
-		}
-		if (+year < 2017) {
-			dispatch(showAlert('year'))
-			return
-		}
-		if (!/\.(png|jpe?g|gif)$/i.test(img) && !/^https?:\/\//i.test(img)) {
-			dispatch(showAlert('images'))
-			return
-		}
-		if (title === '' || title === 'Добавление') {
-			const newBook = {
-				title: name,
-				author,
-				year,
-				coverImage: img,
+		if (validateForm()) {
+			if (currentBook === undefined) {
+				const newBook = {
+					title: name,
+					author,
+					year,
+					coverImage: img,
+				}
+				dispatch(addedBook(newBook))
+				clearField()
+			} else {
+				const editBooks = {
+					...currentBook,
+					title: name,
+					author,
+					year,
+					coverImage: img,
+				}
+				dispatch(editBook(editBooks))
+				clearField()
 			}
-			dispatch(addedBook(newBook))
-			clearField()
-		} else {
-			const editBooks = {
-				id: form.id,
-				title: name,
-				author,
-				year,
-				coverImage: img,
-			}
-			dispatch(editBook(editBooks))
-			clearField()
 		}
 	}
 
@@ -80,7 +88,7 @@ const FormBook = ({ history }) => {
 		<form className="form-book" onSubmit={submitForm}>
 			<h3 className="form-book__title">{title} книги</h3>
 			<div className="form-book__name">
-				<Alert {...alert[0]} />
+				<Alert {...alerts[0]} />
 				<label htmlFor="book-name">Наименование</label>
 				<input
 					id="book-name"
@@ -91,7 +99,7 @@ const FormBook = ({ history }) => {
 				/>
 			</div>
 			<div className="form-book__author">
-				<Alert {...alert[1]} />
+				<Alert {...alerts[1]} />
 				<label htmlFor="book-author">Автор</label>
 				<input
 					id="book-author"
@@ -102,7 +110,7 @@ const FormBook = ({ history }) => {
 				/>
 			</div>
 			<div className="form-book__year">
-				<Alert {...alert[2]} />
+				<Alert {...alerts[2]} />
 				<label htmlFor="book-year">Год выпуска</label>
 				<input
 					id="book-year"
@@ -113,7 +121,7 @@ const FormBook = ({ history }) => {
 				/>
 			</div>
 			<div className="form-book__images">
-				<Alert {...alert[3]} />
+				<Alert {...alerts[3]} />
 				<label htmlFor="book-images">Изображение</label>
 				<input
 					id="book-images"
@@ -136,6 +144,7 @@ const FormBook = ({ history }) => {
 }
 
 FormBook.propTypes = {
+	match: PropTypes.object,
 	history: PropTypes.object.isRequired,
 }
 

@@ -7,13 +7,9 @@ const BOOKS = {
 const ALERT = {
 	VISIBLE: 'ALERT_VISIBLE',
 	HIDE: 'ALERT_HIDE',
-}
-
-const FORM = {
-	CLEAR: 'FORM_CLEAR_BOOK',
-	EDIT: 'FORM_EDIT_BOOK',
+	ALL_HIDE: 'ALL_ALERT_HIDE',
 }
 
 const SEARCH = 'SEARCH_BOOKS'
 
-export { BOOKS, ALERT, FORM, SEARCH }
+export { BOOKS, ALERT, SEARCH }

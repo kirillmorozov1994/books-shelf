@@ -39,6 +39,14 @@ const alertReducer = (state = initialState, action) => {
 			}
 			return [...state.slice(0, indexAlert), alertVisible, ...state.slice(indexAlert + 1)]
 		case ALERT.HIDE:
+			const name = action.payload
+			const index = state.findIndex(({ field }) => field === name)
+			const alertHide = {
+				...state[index],
+				visible: false,
+			}
+			return [...state.slice(0, index), alertHide, ...state.slice(index + 1)]
+		case ALERT.ALL_HIDE:
 			return [...state.map((item) => ({ ...item, visible: false }))]
 		default:
 			return state

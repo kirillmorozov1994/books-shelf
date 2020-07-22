@@ -2,23 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { formEditBook, removeBook } from '../../actions'
+import { removeBook } from '../../actions'
 
 const BooksListItem = ({ id, title, author, year, coverImage, history }) => {
 	const dispatch = useDispatch()
-	const editBooks = () => {
-		const book = {
-			id,
-			title,
-			author,
-			year,
-			coverImage,
-		}
-		dispatch(formEditBook(book))
-		history.push('/form')
-	}
-
-	const removeBooks = () => dispatch(removeBook(id))
 
 	return (
 		<tr className="list-item__row">
@@ -42,10 +29,10 @@ const BooksListItem = ({ id, title, author, year, coverImage, history }) => {
 					<div className="item-desc-year">{year} г.</div>
 				</div>
 				<div className="item-panel">
-					<button className="item-panel-edit panel-btn" onClick={editBooks}>
+					<button className="item-panel-edit panel-btn" onClick={() => history.push(`/form/${id}`)}>
 						Редактировать
 					</button>
-					<button className="item-panel-delete panel-btn" onClick={removeBooks}>
+					<button className="item-panel-delete panel-btn" onClick={() => dispatch(removeBook(id))}>
 						Удалить
 					</button>
 				</div>
