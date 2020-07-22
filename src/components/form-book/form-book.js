@@ -23,7 +23,8 @@ const FormBook = ({ history }) => {
 			setYear(form.year)
 			setImg(form.img)
 		}
-	}, [form])
+		//eslint-disable-next-line
+	}, [])
 
 	const clearField = () => {
 		setName('')
@@ -61,7 +62,6 @@ const FormBook = ({ history }) => {
 				coverImage: img,
 			}
 			dispatch(addedBook(newBook))
-			dispatch(hideAlert())
 			clearField()
 		} else {
 			const editBooks = {
@@ -72,7 +72,6 @@ const FormBook = ({ history }) => {
 				coverImage: img,
 			}
 			dispatch(editBook(editBooks))
-			dispatch(hideAlert())
 			clearField()
 		}
 	}
