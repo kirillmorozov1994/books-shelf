@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/books-shelf/static/css/main.698a1e47.chunk.css",
-    "main.js": "/books-shelf/static/js/main.ee87d818.chunk.js",
-    "main.js.map": "/books-shelf/static/js/main.ee87d818.chunk.js.map",
+    "main.js": "/books-shelf/static/js/main.19129067.chunk.js",
+    "main.js.map": "/books-shelf/static/js/main.19129067.chunk.js.map",
     "runtime-main.js": "/books-shelf/static/js/runtime-main.ead18b64.js",
     "runtime-main.js.map": "/books-shelf/static/js/runtime-main.ead18b64.js.map",
     "static/js/2.af02146d.chunk.js": "/books-shelf/static/js/2.af02146d.chunk.js",
     "static/js/2.af02146d.chunk.js.map": "/books-shelf/static/js/2.af02146d.chunk.js.map",
     "index.html": "/books-shelf/index.html",
-    "precache-manifest.396e95669186ca16b64c44c9fa78ba52.js": "/books-shelf/precache-manifest.396e95669186ca16b64c44c9fa78ba52.js",
+    "precache-manifest.3e45eb2f078f71bc2a2709e50b88d541.js": "/books-shelf/precache-manifest.3e45eb2f078f71bc2a2709e50b88d541.js",
     "service-worker.js": "/books-shelf/service-worker.js",
     "static/css/main.698a1e47.chunk.css.map": "/books-shelf/static/css/main.698a1e47.chunk.css.map",
     "static/js/2.af02146d.chunk.js.LICENSE.txt": "/books-shelf/static/js/2.af02146d.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.ead18b64.js",
     "static/js/2.af02146d.chunk.js",
     "static/css/main.698a1e47.chunk.css",
-    "static/js/main.ee87d818.chunk.js"
+    "static/js/main.19129067.chunk.js"
   ]
 }
