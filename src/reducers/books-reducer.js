@@ -26,8 +26,24 @@ const initialState = [
 	},
 ]
 
+/** @param localStorage
+* Да, знаю, что reducer чистая функция и не должна выполнять side effects,
+* и обращаться к localStorage из него, для этого есть middleWare,
+* но так как проект тестовый, пойдет и так
+*/
+const saveBooksInLocalStorage = (books) => localStorage.setItem('books', JSON.stringify(books))
+
 const booksReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case '@@INIT':
+			const books = localStorage.getItem('books');
+			if(books === null) {
+				localStorage.clear();
+				saveBooksInLocalStorage(state);
+				return state;
+			} else {
+				return JSON.parse(books);
+			}
 		case BOOKS.ADDED:
 			let newBook = action.payload
 			if (state[0]?.id === undefined) {
@@ -35,15 +51,21 @@ const booksReducer = (state = initialState, action) => {
 			} else {
 				newBook = { ...newBook, id: state[state.length - 1].id + 1 }
 			}
-			return [...state, newBook]
+			const newListBooks = [...state, newBook]
+			saveBooksInLocalStorage(newListBooks)
+			return newListBooks
 		case BOOKS.EDIT:
 			const editBook = action.payload
 			const indexBooks = state.findIndex(({ id }) => id === editBook.id)
-			return [...state.slice(0, indexBooks), editBook, ...state.slice(indexBooks + 1)]
+			const editListBooks = [...state.slice(0, indexBooks), editBook, ...state.slice(indexBooks + 1)]
+			saveBooksInLocalStorage(editListBooks)
+			return editListBooks
 		case BOOKS.REMOVE:
 			const idBook = action.payload
 			const indexBook = state.findIndex(({ id }) => id === idBook)
-			return [...state.slice(0, indexBook), ...state.slice(indexBook + 1)]
+			const roundListBooks = [...state.slice(0, indexBook), ...state.slice(indexBook + 1)]
+			saveBooksInLocalStorage(roundListBooks)
+			return roundListBooks
 		default:
 			return state
 	}

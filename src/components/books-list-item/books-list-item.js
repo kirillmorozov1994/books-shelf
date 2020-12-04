@@ -29,7 +29,7 @@ const BooksListItem = ({ id, title, author, year, coverImage, history }) => {
 					<div className="item-desc-year">{year} г.</div>
 				</div>
 				<div className="item-panel">
-					<button className="item-panel-edit panel-btn" onClick={() => history.push(`/form/${id}`)}>
+					<button className="item-panel-edit panel-btn" onClick={() => history.push(`/books-shelf/form/${id}`)}>
 						Редактировать
 					</button>
 					<button className="item-panel-delete panel-btn" onClick={() => dispatch(removeBook(id))}>

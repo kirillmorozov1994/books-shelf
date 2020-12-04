@@ -8,6 +8,9 @@
 	.app {
 		max-width: $sizeWindowS;
 		font-size: $fontS;
+		&-box {
+			width: 110%;
+		}
 		.page-books {
 			.btn-add-book {
 				font-size: $fontM;
@@ -95,6 +98,9 @@
 	.app {
 		max-width: $sizeWindowM;
 		font-size: $fontM;
+		&-box {
+			width: 104%;
+		}
 		.page-books {
 			.btn-add-book {
 				font-size: $fontL;

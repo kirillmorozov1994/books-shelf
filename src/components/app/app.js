@@ -7,9 +7,9 @@ import Footer from '../footer'
 
 const App = () => {
 	const routes = [
-		{ path: '/', Component: PageBooks },
-		{ path: '/form/:id?', Component: PageFormBooks },
-		{ path: '/:error404', Component: NotFound },
+		{ path: '/books-shelf/', Component: PageBooks },
+		{ path: '/books-shelf/form/:id?', Component: PageFormBooks },
+		{ path: '/books-shelf/:error404', Component: NotFound },
 	]
 
 	return (
@@ -19,7 +19,7 @@ const App = () => {
 				<div className="app-box">
 					<div className="page">
 						{routes.map(({ path, Component }) => {
-							if (path === '/:error404') {
+							if (path === '/books-shelf/:error404') {
 								return (
 									<Route key={path} path={path}>
 										{({ match }) => (

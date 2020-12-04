@@ -54,7 +54,7 @@ const FormBook = ({ match, history }) => {
 		setAuthor('')
 		setYear('')
 		setImg('')
-		history.push('/')
+		history.push('/books-shelf/')
 		dispatch(hideAllAlert())
 	}
 
